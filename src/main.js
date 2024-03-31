@@ -170,21 +170,21 @@ function createPoster(imageURL, title, quote) {
 }
 
 function createMyPoster(event){
-  event.preventDefault()
-  console.log("Hello")
-  
+  event.preventDefault()  
 
   currentPoster = createPoster(imageInput.value, titleInput.value, quoteInput.value)
-  console.log(currentPoster, "<>>Current Poster")
+
   images.push(imageInput.value)
   titles.push(titleInput.value)
   quotes.push(quoteInput.value)
+
   posterImage.src = currentPoster.imageURL
   posterTitle.innerText = titleInput.value
   posterQuote.innerText = quoteInput.value
   
   returnToMainPage()
 }
+
 function getRandomContent(){
   var imageIndex = getRandomIndex(images);
   var randomImage = images[imageIndex];
@@ -201,12 +201,12 @@ function getRandomContent(){
   posterQuote.innerText = randomQuote;
 
   currentPoster = createPoster(randomImage, randomTitle, randomQuote)
-   
 }
+
 function accessMakeYourOwnPosterPage() {
   mainPosterPage.classList.add('hidden')
   makeYourOwnPosterPage.classList.remove('hidden')
-  }
+}
 
 function accessShowSavedPostersPage(){
   mainPosterPage.classList.add('hidden')
@@ -249,14 +249,15 @@ function deleteSavedPoster(event) {
 function displaySavedPosters() {
   var savedPostersHTML = []
 
-  savedPosters.forEach(function(poster) {
+  for (var i = 0; i < savedPosters.length; i++) {
+    var poster = savedPosters[i];
     savedPostersHTML += 
       `<article class="mini-poster" data-id="${poster.id}">
-        <img class="poster-img" src="${poster.imageURL}">
+        <img class="poster-img" src="${poster.imageURL}" alt="Saved Poster Image">
         <h2>${poster.title}</h2>
         <h4>${poster.quote}</h4>
-      </article>`
-  });
+      </article>`;
+  }
   savedPostersGrid.innerHTML = savedPostersHTML;
 }
 
