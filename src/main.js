@@ -225,29 +225,13 @@ function savedToMain (){
 }
 
 function saveCurrentPoster() {
-  if (!savedPosters.some(function(poster) { 
-    return poster.id === currentPoster.id; 
-  })) 
-  {
-    savedPosters.push(currentPoster)
-    displaySavedPosters()
+  if (savedPosters.findIndex(
+    function(poster) {
+    return poster.id === currentPoster.id
+  }) === -1) {
+    savedPosters.push(currentPoster);
+    displaySavedPosters();
   }
-}
-
-function displaySavedPosters() {
-  var savedPostersHTML = []
-
-  savedPosters.forEach(function(poster) {
-    savedPostersHTML += 
-  
-    savedPostersGrid.innerHTML =
-      `<article class="poster">
-        <img class="poster-img" src="${poster.imageURL}">
-        <h1 class="poster-title">${poster.title}</h1>
-        <h3 class="poster-quote">${poster.quote}</h3>
-      </article>`
-  })
-  savedPostersGrid.innerHTML = savedPostersHTML;
 }
 
 function deleteSavedPoster(event) {
@@ -263,7 +247,7 @@ function deleteSavedPoster(event) {
 }
 
 function displaySavedPosters() {
-  var savedPostersHTML = '';
+  var savedPostersHTML = []
 
   savedPosters.forEach(function(poster) {
     savedPostersHTML += 
