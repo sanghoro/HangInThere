@@ -20,7 +20,8 @@ we spent over 20 hours combined. Week 2 of FE.
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
-Kevin and Seong (https://github.com/kevinm23nelson/PairProject)
+Kevin (https://github.com/kevinm23nelson/PairProject)
+Seong (www.linkedin.com/in/seong-kang)
 
 ### Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
